@@ -51,6 +51,31 @@ These releases show AWS is actively adopting the Model Context Protocol to impro
 
 ## Usage
 
+```json
+{
+  "mcpServers": {
+    "aws-news": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "ghcr.io/jritsema/aws-news-mcp-server:0.1.0"
+      ]
+    }
+  }
+}
+```
+
+Or using [mcp-cli](https://github.com/jritsema/mcp-cli):
+
+```yaml
+services:
+
+  aws-news:
+    image: ghcr.io/jritsema/aws-news-mcp-server:0.1.0
+```
+
 The MCP server exposes a tool named `get_aws_news` with the following parameters:
 
 - `topic` (string) (required): AWS topic or service to search for (e.g., 's3', 'lambda', 'ec2')
