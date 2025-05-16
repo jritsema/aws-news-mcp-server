@@ -60,7 +60,7 @@ These releases show AWS is actively adopting the Model Context Protocol to impro
         "run",
         "-i",
         "--rm",
-        "ghcr.io/jritsema/aws-news-mcp-server:0.1.0"
+        "ghcr.io/jritsema/aws-news-mcp-server"
       ]
     }
   }
@@ -73,7 +73,7 @@ Or using [mcp-cli](https://github.com/jritsema/mcp-cli):
 services:
 
   aws-news:
-    image: ghcr.io/jritsema/aws-news-mcp-server:0.1.0
+    image: ghcr.io/jritsema/aws-news-mcp-server
 ```
 
 The MCP server exposes a tool named `get_aws_news` with the following parameters:
