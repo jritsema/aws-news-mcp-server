@@ -1,16 +1,12 @@
-import logging
-from log import debug, info, warn, error
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-)
+import sys
+from aws_news_server import main as aws_news_server_main
 
 
 def main():
-    logging.info("aws-news-mcp-server")
-    info({"project_name": "aws-news-mcp-server"})
+
+    # Run the AWS News MCP server
+    return aws_news_server_main(standalone_mode=False)
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

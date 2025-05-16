@@ -1,6 +1,71 @@
 # aws-news-mcp-server
 
-MCP server for AWS news
+MCP server for AWS news that provides a tool to fetch the latest AWS announcements, blog posts, and news for specific AWS services.
+
+
+## Example
+
+```
+!> what has aws recently released related to mcp
+I'll check for recent AWS news related to the Model Context Protocol (MCP).
+
+
+🛠️  Using tool: get_aws_news (trusted) from mcp server aws_news
+ ⋮
+ ● Running get_aws_news with the param:
+ ⋮  {
+ ⋮    "arguments": {
+ ⋮      "topic": "mcp"
+ ⋮    },
+ ⋮    "name": "get_aws_news"
+ ⋮  }
+ ⋮
+ ● Completed in 0.311s
+
+
+AWS has recently released several updates related to the Model Context Protocol (MCP):
+
+1. Amazon Q Developer CLI now supports Model Context Protocol (MCP) (April 29, 2025)
+   • This update adds MCP support to the Amazon Q Developer CLI, allowing you to extend Q's capabilities with custom context providers.
+
+2. Extend the Amazon Q Developer CLI with Model Context Protocol (MCP) for Richer Context (April 29, 2025)
+   • A blog post explaining how to leverage MCP to provide richer context to Amazon Q through the CLI.
+
+3. Introducing AWS MCP Servers for code assistants (Part 1) (April 1, 2025)
+   • A blog post introducing AWS's implementation of MCP servers specifically designed for code assistance.
+
+4. Harness the power of MCP servers with Amazon Bedrock Agents (April 1, 2025)
+   • This blog explains how to integrate MCP servers with Amazon Bedrock Agents to enhance their capabilities.
+
+These releases show AWS is actively adopting the Model Context Protocol to improve their AI assistant offerings by allowing developers to provide additional context and tools to their LLM-powered services.
+```
+
+## Features
+
+- Fetch AWS news articles for specific AWS services/topics
+- Filter by news type (news, blogs, or both)
+- Include or exclude regional expansion news
+- Limit the number of results
+- Filter by date
+
+
+## Usage
+
+The MCP server exposes a tool named `get_aws_news` with the following parameters:
+
+- `topic` (string) (required): AWS topic or service to search for (e.g., 's3', 'lambda', 'ec2')
+- `news_type` (string) (optional, default: "all"): Type of news to return (all, news, or blogs)
+- `include_regional_expansions` (boolean) (optional, default: false): Whether to include regional expansion news
+- `number_of_results` (integer) (optional, default: 40): Maximum number of results to return
+- `since_date` (string) (optional): ISO 8601 date to filter results (e.g., '2025-01-01T00:00:00Z')
+
+
+## Examples
+
+- To get all news about Amazon S3: use topic="s3"
+- To get only blog posts about Amazon EC2: use topic="ec2", news_type="blogs"
+- To get news about Lambda since January 2025: use topic="lambda", since_date="2025-01-01T00:00:00Z"
+- To get regional expansion news for DynamoDB: use topic="dynamodb", include_regional_expansions=true
 
 
 ## Development
