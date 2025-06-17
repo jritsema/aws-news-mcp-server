@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/jritsema-aws-news-mcp-server-badge.png)](https://mseep.ai/app/jritsema-aws-news-mcp-server)
+
 # aws-news-mcp-server
 
 MCP server for AWS news that provides a tool to fetch the latest AWS announcements, blog posts, and news for specific AWS services.
