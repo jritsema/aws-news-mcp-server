@@ -2,6 +2,28 @@
 
 MCP server for AWS news that provides a tool to fetch the latest AWS announcements, blog posts, and news for specific AWS services.
 
+```
+> What is the aws news tool?
+
+The AWS News tool is an MCP (Model Context Protocol) server that provides a way to fetch the latest AWS announcements, blog posts, and news for specific AWS services. 
+
+Specifically, it exposes a tool called get_aws_news that allows you to:
+
+• Fetch AWS news articles for specific AWS services/topics
+• Filter by news type (news, blogs, or both)
+• Include or exclude regional expansion news
+• Limit the number of results
+• Filter by date
+
+The tool takes these parameters:
+• topic (required): The AWS service or topic you want news about (e.g., 's3', 'lambda')
+• news_type (optional): Type of news to return (all, news, or blogs)
+• include_regional_expansions (optional): Whether to include regional expansion news
+• number_of_results (optional): Maximum number of results to return
+• since_date (optional): ISO 8601 date to filter results from
+
+This tool is useful when you want to stay updated on the latest AWS service announcements, new features, or blog posts about specific AWS services.
+```
 
 ## Example
 
@@ -48,7 +70,6 @@ These releases show AWS is actively adopting the Model Context Protocol to impro
 - Limit the number of results
 - Filter by date
 
-
 ## Usage
 
 ```json
@@ -71,9 +92,13 @@ Or using [mcp-cli](https://github.com/jritsema/mcp-cli):
 
 ```yaml
 services:
-
   aws-news:
     image: ghcr.io/jritsema/aws-news-mcp-server
+    labels:
+      mcp.profile: aws
+```
+```sh
+mcp set aws
 ```
 
 The MCP server exposes a tool named `get_aws_news` with the following parameters:
@@ -84,14 +109,12 @@ The MCP server exposes a tool named `get_aws_news` with the following parameters
 - `number_of_results` (integer) (optional, default: 40): Maximum number of results to return
 - `since_date` (string) (optional): ISO 8601 date to filter results (e.g., '2025-01-01T00:00:00Z')
 
-
 ## Examples
 
 - To get all news about Amazon S3: use topic="s3"
 - To get only blog posts about Amazon EC2: use topic="ec2", news_type="blogs"
 - To get news about Lambda since January 2025: use topic="lambda", since_date="2025-01-01T00:00:00Z"
 - To get regional expansion news for DynamoDB: use topic="dynamodb", include_regional_expansions=true
-
 
 ## Development
 ```
