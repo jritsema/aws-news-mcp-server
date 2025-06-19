@@ -135,6 +135,21 @@ async def get_aws_news(
         return f"Error fetching AWS news: {str(e)}"
 
 
+@mcp.prompt(name="aws-latest", description="Get the latest news and blogs from AWS on a list of subjects")
+def prompt_aws_latest(topics: str, days_ago=90) -> str:
+    return f"Tell me the latest AWS news and blogs for {topics} over the past {days_ago} days."
+
+
+@mcp.prompt(name="aws-news")
+def prompt_aws_news(topics: str, days_ago=90) -> str:
+    return f"Tell me the latest AWS news of type news for {topics} over the past {days_ago} days."
+
+
+@mcp.prompt(name="aws-blogs")
+def prompt_aws_blogs(topics: str, days_ago=90) -> str:
+    return f"Tell me the latest AWS blog posts for {topics} over the past {days_ago} days."
+
+
 @click.command()
 @click.option("--port", default=8000, help="Port to listen on for HTTP server")
 @click.option(

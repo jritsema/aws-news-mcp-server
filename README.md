@@ -3,7 +3,7 @@
 MCP server for AWS news that provides a tool to fetch the latest AWS announcements, blog posts, and news for specific AWS services.
 
 ```
-> What is the aws news tool?
+!> What is the aws news tool?
 
 The AWS News tool is an MCP (Model Context Protocol) server that provides a way to fetch the latest AWS announcements, blog posts, and news for specific AWS services. 
 
@@ -25,10 +25,11 @@ The tool takes these parameters:
 This tool is useful when you want to stay updated on the latest AWS service announcements, new features, or blog posts about specific AWS services.
 ```
 
-## Example
+## Examples
 
 ```
-!> what has aws recently released related to mcp
+!> what has aws recently released related to mcp?
+
 I'll check for recent AWS news related to the Model Context Protocol (MCP).
 
 
@@ -61,6 +62,28 @@ AWS has recently released several updates related to the Model Context Protocol 
 
 These releases show AWS is actively adopting the Model Context Protocol to improve their AI assistant offerings by allowing developers to provide additional context and tools to their LLM-powered services.
 ```
+
+### Prompts
+
+If your client supports MCP `prompts` (examples using Q CLI):
+
+```
+!> @aws-news bedrock,mcp
+I'll fetch the latest AWS news for Bedrock and MCP over the past 90 days. Let me get that information for you.
+...
+```
+
+```
+> @aws-latest lambda 30
+I'll fetch the latest AWS news and blogs for Lambda over the past 30 days for you.
+...
+```
+
+```
+!> @aws-blogs agents
+I'll fetch the latest AWS blog posts related to agents over the past 90 days for you.
+```
+
 
 ## Features
 
